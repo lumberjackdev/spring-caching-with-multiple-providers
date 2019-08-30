@@ -12,4 +12,7 @@ class BookService {
 
     @Cacheable(cacheNames = ["books"], cacheManager = "jCacheCacheManager")
     fun getBooks(author: String) = books.getOrDefault(author, emptyList())
+
+    @Cacheable(cacheNames = ["authors"], key = "'all-authors'")
+    fun getAuthors() = listOf(books.keys.toTypedArray())
 }
