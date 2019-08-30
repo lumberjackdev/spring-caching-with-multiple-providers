@@ -28,6 +28,7 @@ class BookServiceTests {
         bookService.getBooks("Steven Erikson")
 
         assertThat(jcacheManager.cacheManager!!.getCache<String, List<String>>("books").containsKey("Steven Erikson")).isTrue()
+        assertThat(redisCacheManager.getCache("books")!!["Steven Erikson"]).isNull()
     }
 
     @Test
@@ -35,5 +36,6 @@ class BookServiceTests {
         bookService.getAuthors()
 
         assertThat(redisCacheManager.getCache("authors")!!["all-authors", List::class.java]!!.size).isGreaterThanOrEqualTo(1)
+        assertThat(jcacheManager.getCache("authors")).isNull()
     }
 }
