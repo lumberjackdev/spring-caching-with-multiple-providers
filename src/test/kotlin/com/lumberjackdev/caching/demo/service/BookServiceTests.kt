@@ -20,7 +20,7 @@ class BookServiceTests {
     lateinit var jcacheManager: JCacheCacheManager
 
     @Test
-    fun `fetching books for an author should be cached`() {
+    fun `fetching books for an author should be cached in JCache`() {
         bookService.getBooks("Steven Erikson")
 
         assertThat(jcacheManager.cacheManager!!.getCache<String, List<String>>("books").containsKey("Steven Erikson")).isTrue()

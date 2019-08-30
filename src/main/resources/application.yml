@@ -1,5 +1,7 @@
 spring:
   cache:
+    redis:
+      cache-null-values: false
     jcache:
       config: classpath:ehcache.xml
 

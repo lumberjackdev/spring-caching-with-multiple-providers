@@ -10,6 +10,6 @@ class BookService {
             "Steven Erikson" to listOf("Gardens of the Moon", "Dust of Dreams", "Deadhouse Gates"),
             "Ian C. Esslemont" to listOf("Night of Knives", "Return of the Crimson Guard"))
 
-    @Cacheable(cacheNames = ["books"])
+    @Cacheable(cacheNames = ["books"], cacheManager = "jCacheCacheManager")
     fun getBooks(author: String) = books.getOrDefault(author, emptyList())
 }
