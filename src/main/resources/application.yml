@@ -1,4 +1,10 @@
 spring:
   cache:
     jcache:
-      config: ehcache.xml
+      config: classpath:ehcache.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

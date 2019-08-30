@@ -4,7 +4,7 @@
 
     <cache alias="books">
         <key-type>java.lang.String</key-type>
-        <value-type>java.lang.String</value-type>
+        <value-type>java.util.List</value-type>
 
         <expiry>
             <ttl>86400</ttl>

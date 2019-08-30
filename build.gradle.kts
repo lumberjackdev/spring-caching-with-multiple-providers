@@ -19,6 +19,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("org.ehcache:ehcache:3.8.0")
+    implementation("javax.cache:cache-api")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -47,7 +48,7 @@ tasks.withType<Test> {
 
 tasks.create<Exec>("dockerComposeUp") {
     commandLine("docker-compose", "up", "-d")
-    doLast { Thread.sleep(10000) }
+    doLast { Thread.sleep(2000) }
 }
 
 tasks.create<Exec>("dockerComposeDown") {

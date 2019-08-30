@@ -10,7 +10,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 class DemoApplicationTests {
 
     @Test
-    fun contextLoads() {
+    fun `the context loads`() {
     }
 
 }
